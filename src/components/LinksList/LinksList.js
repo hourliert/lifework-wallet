@@ -20,8 +20,9 @@ export default class LinksList extends Component {
     return (
       <div>
       {
-        links.map(m => (
+        links.map((m, i) => (
           <LinkItem
+            key={i}
             item={m}
             onLinkTouch={onLinkTouch}
           />

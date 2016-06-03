@@ -1,3 +1,4 @@
+export { default as wallet } from './wallet';
 export { default as errors } from './errors';
 export { default as loading } from './loading';
 export { default as app } from './app';

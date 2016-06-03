@@ -6,9 +6,11 @@ import pureRender from 'pure-render-decorator';
 import { WrapperWalletPage } from 'routes/wallet/component';
 import { WalletPageSelector } from 'routes/wallet/selector';
 
+import * as WALLET_ACTIONS from 'actions/wallet';
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-
+    ...WALLET_ACTIONS,
   }, dispatch);
 }
 
@@ -16,13 +18,22 @@ function mapDispatchToProps(dispatch) {
 @connect(WalletPageSelector, mapDispatchToProps)
 export default class WalletPage extends Component {
   static propTypes = {
+    walletValue: PropTypes.number,
+    transactions: PropTypes.array,
 
+    addToWallet: PropTypes.func,
+    removeFromWallet: PropTypes.func,
   };
 
   render() {
+    const { walletValue, transactions, addToWallet, removeFromWallet } = this.props;
+
     return (
       <WrapperWalletPage
-
+        walletValue={walletValue}
+        transactions={transactions}
+        addToWallet={addToWallet}
+        removeFromWallet={removeFromWallet}
       />
     );
   }
