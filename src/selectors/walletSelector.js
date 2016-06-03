@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-export function walletValueSelector(state) {
+export function walletBalanceSelector(state) {
   return state.wallet.get('value');
 }
 

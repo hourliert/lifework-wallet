@@ -18,7 +18,7 @@ function mapDispatchToProps(dispatch) {
 @connect(WalletPageSelector, mapDispatchToProps)
 export default class WalletPage extends Component {
   static propTypes = {
-    walletValue: PropTypes.number,
+    walletBalance: PropTypes.number,
     transactions: PropTypes.array,
 
     addToWallet: PropTypes.func,
@@ -26,11 +26,11 @@ export default class WalletPage extends Component {
   };
 
   render() {
-    const { walletValue, transactions, addToWallet, removeFromWallet } = this.props;
+    const { walletBalance, transactions, addToWallet, removeFromWallet } = this.props;
 
     return (
       <WrapperWalletPage
-        walletValue={walletValue}
+        walletBalance={walletBalance}
         transactions={transactions}
         addToWallet={addToWallet}
         removeFromWallet={removeFromWallet}

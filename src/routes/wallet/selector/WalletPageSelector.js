@@ -1,8 +1,8 @@
 import { createStructuredSelector } from 'reselect';
 
-import { walletValueSelector, transactionsArraySelector } from 'selectors';
+import { walletBalanceSelector, transactionsArraySelector } from 'selectors';
 
 export default createStructuredSelector({
-  walletValue: walletValueSelector,
+  walletBalance: walletBalanceSelector,
   transactions: transactionsArraySelector,
 });

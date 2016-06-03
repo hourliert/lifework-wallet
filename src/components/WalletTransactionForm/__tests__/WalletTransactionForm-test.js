@@ -6,22 +6,22 @@ import { shallow } from 'enzyme';
 
 import React from 'react';
 
-describe('WalletTransaction', () => {
+describe('WalletTransactionForm', () => {
   it('should exists', () => {
-    const WalletTransaction = require('../WalletTransaction');
+    const WalletTransactionForm = require('../WalletTransactionForm');
 
     const wrapper = shallow((
-      <WalletTransaction />
+      <WalletTransactionForm />
     ));
 
     expect(wrapper).to.have.length(1);
   });
 
   it('should render inner components', () => {
-    const WalletTransaction = require('../WalletTransaction');
+    const WalletTransactionForm = require('../WalletTransactionForm');
 
     const wrapper = shallow((
-      <WalletTransaction />
+      <WalletTransactionForm />
     ));
 
     expect(wrapper.find('div')).to.have.length(1);

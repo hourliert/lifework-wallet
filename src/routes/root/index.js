@@ -9,7 +9,7 @@ export default function getRoute({ getState }, userAgent) {
 
   return {
     path: ROOT,
-    indexRoute: walletRoute,
+    indexRoute: { component: walletRoute.component },
     component: makeRootApp(userAgent, RootPage),
     childRoutes: [
       walletRoute,

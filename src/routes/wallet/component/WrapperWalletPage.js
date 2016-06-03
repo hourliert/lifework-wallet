@@ -7,7 +7,7 @@ import { WalletCard, WalletHistory } from 'components';
 @pureRender
 export default class WrapperWalletPage extends Component {
   static propTypes = {
-    walletValue: PropTypes.number,
+    walletBalance: PropTypes.number,
     transactions: PropTypes.array,
 
     addToWallet: PropTypes.func,
@@ -15,12 +15,12 @@ export default class WrapperWalletPage extends Component {
   };
 
   render() {
-    const { walletValue, transactions, addToWallet, removeFromWallet } = this.props;
+    const { walletBalance, transactions, addToWallet, removeFromWallet } = this.props;
 
     return (
       <div className="flex layout vertical">
         <WalletCard
-          walletValue={walletValue}
+          walletBalance={walletBalance}
           addToWallet={addToWallet}
           removeFromWallet={removeFromWallet}
         />
