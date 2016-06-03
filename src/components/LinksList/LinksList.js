@@ -1,0 +1,33 @@
+import React, { Component, PropTypes } from 'react';
+
+import pureRender from 'pure-render-decorator';
+import LinkItem from 'components/LinkItem';
+
+@pureRender
+export default class LinksList extends Component {
+  static propTypes = {
+    links: PropTypes.array.isRequired,
+    onLinkTouch: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    links: [],
+  };
+
+  render() {
+    const { onLinkTouch, links } = this.props;
+
+    return (
+      <div>
+      {
+        links.map(m => (
+          <LinkItem
+            item={m}
+            onLinkTouch={onLinkTouch}
+          />
+        ))
+      }
+      </div>
+    );
+  }
+}
