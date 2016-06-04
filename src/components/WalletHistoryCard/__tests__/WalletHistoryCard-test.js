@@ -24,6 +24,6 @@ describe('WalletHistoryCard', () => {
       <WalletHistoryCard />
     ));
 
-    expect(wrapper.find('div')).to.have.length(1);
+    expect(wrapper.find('WalletHistory')).to.have.length(1);
   });
 });

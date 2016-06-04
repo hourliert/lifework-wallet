@@ -21,19 +21,17 @@ export default class WalletPage extends Component {
     walletBalance: PropTypes.number,
     transactions: PropTypes.array,
 
-    addToWallet: PropTypes.func,
-    removeFromWallet: PropTypes.func,
+    updateWallet: PropTypes.func,
   };
 
   render() {
-    const { walletBalance, transactions, addToWallet, removeFromWallet } = this.props;
+    const { walletBalance, transactions, updateWallet } = this.props;
 
     return (
       <WrapperWalletPage
         walletBalance={walletBalance}
         transactions={transactions}
-        addToWallet={addToWallet}
-        removeFromWallet={removeFromWallet}
+        onNewTransaction={updateWallet}
       />
     );
   }

@@ -2,33 +2,25 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
-import { annotator } from 'retax-components';
 
 import pureRender from 'pure-render-decorator';
 import { WrapperRootPage } from 'routes/root/component';
 import { RootPageSelector } from 'routes/root/selector';
 
-import AppActionsCreator from 'actions/app';
+import * as APP_ACTIONS from 'actions/app';
 import { reset } from 'actions/wallet';
 
 import { CURRENT_VERSION } from 'config/frontEndServer';
 
-function mapDispatchToProps(dispatch, props) {
-  const { appActions } = props;
-
+function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    ...appActions.export(),
+    ...APP_ACTIONS,
     goToLink: push,
     resetWallet: reset,
   }, dispatch);
 }
 
 @pureRender
-@annotator.RetaxComponent({
-  actionsCreators: {
-    appActions: AppActionsCreator,
-  },
-})
 @connect(RootPageSelector, mapDispatchToProps)
 export default class RootPage extends Component {
   static propTypes = {

@@ -45,7 +45,7 @@ export default class WalletTransactionForm extends Component {
     const { initializeForm } = this.props;
 
     initializeForm({
-      kind: 'add',
+      kind: '+',
     });
   }
 
@@ -69,10 +69,11 @@ export default class WalletTransactionForm extends Component {
         className="flex layout vertical around-justified center-center"
         onSubmit={this._onSubmit}
         onReset={resetForm}
-        >
+      >
         <TextField
           id="transaction-input-1"
           type="number"
+          step="0.01"
           hintText="Amount of the transaction in $"
           errorText={amount.error}
           {...amount}
@@ -80,15 +81,15 @@ export default class WalletTransactionForm extends Component {
 
         <RadioButtonGroup
           name="kind"
-          defaultSelected="add"
+          defaultSelected="+"
           {...kind}
         >
           <RadioButton
-            value="add"
+            value="+"
             label="Add"
           />
           <RadioButton
-            value="remove"
+            value="-"
             label="Remove"
           />
         </RadioButtonGroup>

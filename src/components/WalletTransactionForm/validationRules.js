@@ -12,9 +12,9 @@ export default (values, props) => {
   } else if (transactionAmount <= 0) {
     errors.amount = 'Must be a positive number';
   } else {
-    if (!['add', 'remove'].includes(kind)) {
+    if (!['+', '-'].includes(kind)) {
       errors.kind = 'Required';
-    } else if (kind === 'remove') {
+    } else if (kind === '-') {
       if (walletBalance - transactionAmount < 0) {
         errors.amount = `Your amount must be less than ${walletBalance}`;
       }

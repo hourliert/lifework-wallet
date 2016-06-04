@@ -14,8 +14,7 @@ export default class WalletCard extends Component {
   static propTypes = {
     walletBalance: PropTypes.number,
 
-    addToWallet: PropTypes.func,
-    removeFromWallet: PropTypes.func,
+    onNewTransaction: PropTypes.func,
   };
 
   constructor(...args) {
@@ -46,14 +45,10 @@ export default class WalletCard extends Component {
   }
 
   _updateWalletBalance({ amount, kind }) {
-    const { addToWallet, removeFromWallet } = this.props;
+    const { onNewTransaction } = this.props;
     const parsedAmount = parseFloat(amount);
 
-    if (kind === 'add') {
-      addToWallet(parsedAmount);
-    } else if (kind === 'remove') {
-      removeFromWallet(parsedAmount);
-    }
+    onNewTransaction(parsedAmount, kind);
 
     this.setState({ transacting: false });
   }

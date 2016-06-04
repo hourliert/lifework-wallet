@@ -1,23 +1,16 @@
 import { actionsCreatorFactory } from 'retax';
 
 import {
-  ADD_TO_WALLET,
-  REMOVE_FROM_WALLET,
+  UPDATE_TO_WALLET,
   SET_TRANSATIONS,
   SET_WALLET,
 } from 'constants/actions';
 
-export const addToWallet = actionsCreatorFactory(
-  ADD_TO_WALLET,
-  amount => ({
+export const updateWallet = actionsCreatorFactory(
+  UPDATE_TO_WALLET,
+  (amount, kind) => ({
     amount,
-    date: new Date(),
-  })
-);
-export const removeFromWallet = actionsCreatorFactory(
-  REMOVE_FROM_WALLET,
-  amount => ({
-    amount,
+    kind,
     date: new Date(),
   })
 );

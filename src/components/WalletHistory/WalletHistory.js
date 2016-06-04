@@ -17,6 +17,58 @@ export default class WalletHistory extends Component {
     transactions: [],
   };
 
+  _renderEmptyItem() {
+    return (
+      <ListItem
+        leftAvatar={
+          <Avatar
+            backgroundColor={Colors.grey100}
+            color={Colors.blue300}
+            icon={<FontIcon className="material-icons">trending_flat</FontIcon>}
+          />
+        }
+        primaryText="Your wallet is empty."
+      />
+    );
+  }
+
+  _renderTransactionsList() {
+    const { transactions } = this.props;
+
+    return transactions.map(({ amount, date, kind }, i) => {
+      let color;
+      let icon;
+
+      if (kind === '+') {
+        color = Colors.green500;
+        icon = 'trending_up';
+      } else {
+        color = Colors.red500;
+        icon = 'trending_down';
+      }
+
+      return (
+        <ListItem
+          key={i}
+          leftAvatar={
+            <Avatar
+              backgroundColor={Colors.grey100}
+              color={color}
+              icon={
+                <FontIcon className="material-icons">{icon}</FontIcon>
+              }
+            />
+          }
+          primaryText={`$${amount}`}
+          secondaryText={
+            <p>{date.toLocaleString()}</p>
+          }
+          secondaryTextLines={1}
+        />
+      );
+    });
+  }
+
   render() {
     const { transactions } = this.props;
 
@@ -26,50 +78,8 @@ export default class WalletHistory extends Component {
           <Subheader>Transactions History</Subheader>
 
           { !transactions.length ?
-            <ListItem
-              leftAvatar={
-                <Avatar
-                  backgroundColor={Colors.grey100}
-                  color={Colors.blue300}
-                  icon={<FontIcon className="material-icons">trending_flat</FontIcon>}
-                />
-              }
-              primaryText="Your wallet is empty."
-            /> :
-            transactions.map(({ amount, date, kind }, i) => {
-              let color;
-              let icon;
-
-              if (kind === 'add') {
-                color = Colors.green500;
-                icon = 'trending_up';
-              } else {
-                color = Colors.red500;
-                icon = 'trending_down';
-              }
-
-              return (
-                <ListItem
-                  key={i}
-                  leftAvatar={
-                    <Avatar
-                      backgroundColor={Colors.grey100}
-                      color={color}
-                      icon={
-                        <FontIcon className="material-icons">{icon}</FontIcon>
-                      }
-                    />
-                  }
-                  primaryText={`$${amount}`}
-                  secondaryText={
-                    <p>
-                      <span>{date.toLocaleString()}</span>
-                    </p>
-                  }
-                  secondaryTextLines={1}
-                />
-              );
-            })
+            this._renderEmptyItem() :
+            this._renderTransactionsList()
           }
         </List>
       </div>

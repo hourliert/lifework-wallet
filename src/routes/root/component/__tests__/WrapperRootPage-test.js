@@ -1,5 +1,4 @@
 import chai, { expect } from 'chai';
-import mockery from 'mockery';
 import dirtyChai from 'dirty-chai';
 chai.use(dirtyChai);
 
@@ -15,38 +14,6 @@ describe('WrapperRootPage', () => {
   };
 
   describe('Without DOM', () => {
-    beforeEach(() => {
-      mockery.enable({
-        warnOnReplace: false,
-        warnOnUnregistered: false,
-        useCleanCache: true,
-      });
-      mockery.registerMock(
-        'material-ui',
-        require('helpers/test/materialUiMock')
-      );
-      mockery.registerMock(
-        'react-helmet',
-        require('helpers/test/reactHelmetMock')
-      );
-      mockery.registerMock(
-        'pure-render-decorator',
-        require('helpers/test/decoratorsMock').pureRender
-      );
-      mockery.registerMock(
-        'components/LeftMenuDrawer',
-        require('helpers/test/componentsMock').LeftMenuDrawer
-      );
-    });
-
-    afterEach(() => {
-      mockery.deregisterMock('material-ui');
-      mockery.deregisterMock('react-helmet');
-      mockery.deregisterMock('pure-render-decorator');
-      mockery.deregisterMock('components/LeftMenuDrawer');
-      mockery.disable();
-    });
-
     it('should work', () => {
       const WrapperRootPage = require('../WrapperRootPage');
       const wrapper = shallow(
@@ -82,7 +49,6 @@ describe('WrapperRootPage', () => {
         }
       );
 
-      expect(wrapper.find('Helmet')).to.have.length(1);
       expect(wrapper.find('AppBar')).to.have.length(1);
       expect(wrapper.find('LeftMenuDrawer')).to.have.length(1);
     });

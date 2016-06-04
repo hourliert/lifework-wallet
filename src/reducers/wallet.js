@@ -2,15 +2,14 @@ import { fromJS } from 'immutable';
 import { reducerFactory } from 'retax';
 
 import {
-  ADD_TO_WALLET,
-  REMOVE_FROM_WALLET,
+  UPDATE_TO_WALLET,
   SET_TRANSATIONS,
   SET_WALLET,
 } from 'constants/actions';
 
 function getInitialState() {
   return fromJS({
-    value: 0,
+    value: undefined,
     transactions: [],
   });
 }
@@ -26,20 +25,12 @@ export default reducerFactory(
       return state.set('transactions', fromJS(action.payload));
     },
 
-    [ADD_TO_WALLET](state, action) {
-      const { payload: { amount, date } } = action;
+    [UPDATE_TO_WALLET](state, action) {
+      const { payload: { amount, date, kind } } = action;
 
       return state
-        .update('value', v => v + amount)
-        .update('transactions', t => t.unshift(fromJS({ amount, date, kind: 'add' })));
-    },
-
-    [REMOVE_FROM_WALLET](state, action) {
-      const { payload: { amount, date } } = action;
-
-      return state
-        .update('value', v => v - amount)
-        .update('transactions', t => t.unshift(fromJS({ amount, date, kind: 'remove' })));
+        .update('value', v => (kind === '+' ? (v + amount) : (v - amount)))
+        .update('transactions', t => t.unshift(fromJS({ amount, date, kind })));
     },
   }
 );

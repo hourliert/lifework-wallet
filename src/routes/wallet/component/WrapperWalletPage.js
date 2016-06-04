@@ -10,19 +10,17 @@ export default class WrapperWalletPage extends Component {
     walletBalance: PropTypes.number,
     transactions: PropTypes.array,
 
-    addToWallet: PropTypes.func,
-    removeFromWallet: PropTypes.func,
+    onNewTransaction: PropTypes.func,
   };
 
   render() {
-    const { walletBalance, transactions, addToWallet, removeFromWallet } = this.props;
+    const { walletBalance, transactions, onNewTransaction } = this.props;
 
     return (
       <div className="flex layout vertical center">
         <WalletCard
           walletBalance={walletBalance}
-          addToWallet={addToWallet}
-          removeFromWallet={removeFromWallet}
+          onNewTransaction={onNewTransaction}
         />
         <WalletHistoryCard transactions={transactions} />
       </div>

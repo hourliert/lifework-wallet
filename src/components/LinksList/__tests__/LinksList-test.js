@@ -41,36 +41,6 @@ describe('LinksList', () => {
   ];
 
   describe('Without DOM', () => {
-    beforeEach(() => {
-      mockery.enable({
-        warnOnReplace: false,
-        warnOnUnregistered: false,
-        useCleanCache: true,
-      });
-      mockery.registerMock(
-        'pure-render-decorator',
-        require('helpers/test/decoratorsMock').pureRender
-      );
-      mockery.registerMock(
-        'material-ui',
-        require('helpers/test/materialUiMock')
-      );
-      mockery.registerMock('components/AccessChecker',
-        require('helpers/test/componentsMock').AccessChecker
-      );
-      mockery.registerMock('components/LinkItem',
-        require('helpers/test/componentsMock').LinkItem
-      );
-    });
-
-    afterEach(() => {
-      mockery.deregisterMock('pure-render-decorator');
-      mockery.deregisterMock('material-ui');
-      mockery.deregisterMock('components/AccessChecker');
-      mockery.deregisterMock('components/LinkItem');
-      mockery.disable();
-    });
-
     it('should exists', () => {
       const LinksList = require('../LinksList');
       const wrapper = shallow(
@@ -92,7 +62,6 @@ describe('LinksList', () => {
         />,
       );
 
-      expect(wrapper.find('AccessChecker')).to.have.length(1);
       expect(wrapper.find('LinkItem')).to.have.length(1);
     });
 
@@ -105,7 +74,6 @@ describe('LinksList', () => {
         />,
       );
 
-      expect(wrapper.find('AccessChecker')).to.have.length(3);
       expect(wrapper.find('LinkItem')).to.have.length(3);
     });
   });

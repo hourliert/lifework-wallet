@@ -12,33 +12,6 @@ import React from 'react';
 function noop() {}
 
 describe('LeftMenuDrawer', () => {
-  beforeEach(() => {
-    mockery.enable({
-      warnOnReplace: false,
-      warnOnUnregistered: false,
-      useCleanCache: true,
-    });
-    mockery.registerMock(
-      'pure-render-decorator',
-      require('helpers/test/decoratorsMock').pureRender
-    );
-    mockery.registerMock(
-      'material-ui',
-      require('helpers/test/materialUiMock')
-    );
-    mockery.registerMock(
-      'components/LinksList',
-      require('helpers/test/componentsMock').LinksList
-    );
-  });
-
-  afterEach(() => {
-    mockery.deregisterMock('pure-render-decorator');
-    mockery.deregisterMock('material-ui');
-    mockery.deregisterMock('components/LinksList');
-    mockery.disable();
-  });
-
   describe('Without DOM', () => {
     it('should exists', () => {
       const LeftMenuDrawer = require('../LeftMenuDrawer');
