@@ -15,7 +15,7 @@ import { genStaticIndex, genDynamicIndex } from 'helpers/htmlIndex';
 
 import getRetaxConfig from './retax.config';
 import { makeIsomorphicConfig } from 'builder-react-fullstack';
-import { FRONTEND_SERVER_PORT, SERVER_RENDERING } from 'config/frontEndServer';
+import { FRONTEND_SERVER_PORT, SERVER_RENDERING, PORT } from 'config/frontEndServer';
 
 const logger = debug('LifeworkWallet-serverEntry');
 
@@ -36,7 +36,7 @@ initIsomorphicAssets(join(__dirname, '../src'));
 logger('main: Done');
 
 const app = global.server = new Express();
-const port = FRONTEND_SERVER_PORT;
+const port = FRONTEND_SERVER_PORT || PORT;
 
 app.set('port', (process.env.PORT || port));
 
