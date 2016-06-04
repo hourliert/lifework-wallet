@@ -6,3 +6,4 @@ export { default as WalletCard } from './WalletCard';
 export { default as WalletHistory } from './WalletHistory';
 export { default as WalletBalance } from './WalletBalance';
 export { default as WalletTransactionForm } from './WalletTransactionForm';
+export { default as WalletHistoryCard } from './WalletHistoryCard';

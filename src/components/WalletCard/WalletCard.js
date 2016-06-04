@@ -1,10 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import pureRender from 'pure-render-decorator';
 
+import Paper from 'material-ui/Paper';
 import Snackbar from 'material-ui/Snackbar';
 
 import WalletBalance from 'components/WalletBalance';
 import WalletTransactionForm from 'components/WalletTransactionForm';
+
+import styles from './styles';
 
 @pureRender
 export default class WalletCard extends Component {
@@ -60,8 +63,7 @@ export default class WalletCard extends Component {
     const { transacting, formError } = this.state;
 
     return (
-      <div className="flex layout vertical">
-
+      <Paper style={styles.paper}>
         { !transacting ?
           <WalletBalance
             onTouchTap={this._onBalanceTouch}
@@ -74,14 +76,13 @@ export default class WalletCard extends Component {
             onCancel={this._onCancelTransaction}
           />
         }
-
         <Snackbar
           open={!!formError}
           message={formError}
           autoHideDuration={5000}
           onRequestClose={this._onToastClose}
         />
-      </div>
+      </Paper>
     );
   }
 }

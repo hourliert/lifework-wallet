@@ -7,6 +7,7 @@ import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import FlatButton from 'material-ui/FlatButton';
 
 import validate from './validationRules';
+import styles from './styles';
 
 @pureRender
 @reduxForm({
@@ -64,10 +65,11 @@ export default class WalletTransactionForm extends Component {
 
     return (
       <form
-        className="flex layout vertical"
+        style={styles.form}
+        className="flex layout vertical around-justified center-center"
         onSubmit={this._onSubmit}
         onReset={resetForm}
-      >
+        >
         <TextField
           id="transaction-input-1"
           type="number"
@@ -91,17 +93,19 @@ export default class WalletTransactionForm extends Component {
           />
         </RadioButtonGroup>
 
-        <FlatButton
-          label="Submit"
-          disabled={submitting}
-          type="submit"
-        />
+        <div className="layout horizontal around-justified">
+          <FlatButton
+            label="Submit"
+            disabled={submitting}
+            type="submit"
+          />
 
-        <FlatButton
-          label="Cancel"
-          disabled={submitting}
-          onTouchTap={onCancel}
-        />
+          <FlatButton
+            label="Cancel"
+            disabled={submitting}
+            onTouchTap={onCancel}
+          />
+        </div>
       </form>
     );
   }

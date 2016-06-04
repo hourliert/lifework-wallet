@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 
 import pureRender from 'pure-render-decorator';
 
-import { WalletCard, WalletHistory } from 'components';
+import { WalletCard, WalletHistoryCard } from 'components';
 
 @pureRender
 export default class WrapperWalletPage extends Component {
@@ -18,13 +18,13 @@ export default class WrapperWalletPage extends Component {
     const { walletBalance, transactions, addToWallet, removeFromWallet } = this.props;
 
     return (
-      <div className="flex layout vertical">
+      <div className="flex layout vertical center">
         <WalletCard
           walletBalance={walletBalance}
           addToWallet={addToWallet}
           removeFromWallet={removeFromWallet}
         />
-        <WalletHistory transactions={transactions} />
+        <WalletHistoryCard transactions={transactions} />
       </div>
     );
   }

@@ -31,7 +31,7 @@ export default reducerFactory(
 
       return state
         .update('value', v => v + amount)
-        .update('transactions', t => t.unshift(fromJS({ amount, date })));
+        .update('transactions', t => t.unshift(fromJS({ amount, date, kind: 'add' })));
     },
 
     [REMOVE_FROM_WALLET](state, action) {
@@ -39,7 +39,7 @@ export default reducerFactory(
 
       return state
         .update('value', v => v - amount)
-        .update('transactions', t => t.unshift(fromJS({ amount: -amount, date })));
+        .update('transactions', t => t.unshift(fromJS({ amount, date, kind: 'remove' })));
     },
   }
 );

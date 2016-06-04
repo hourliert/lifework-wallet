@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import pureRender from 'pure-render-decorator';
 
+import styles from './styles';
+
 @pureRender
 export default class WalletBalance extends Component {
   static propTypes = {
@@ -13,10 +15,14 @@ export default class WalletBalance extends Component {
     const { walletBalance, onTouchTap } = this.props;
 
     return (
-      <div className="flex layout vertical" onTouchTap={onTouchTap}>
-        Current wallet balance: ${walletBalance}.
+      <div
+        className="flex layout vertical around-justified"
+        onTouchTap={onTouchTap}
+        style={styles.container}
+      >
+        <span style={styles.balance}>Current balance: ${walletBalance}</span>
 
-        Tap here to add or remove money.
+        <span style={styles.edit}>Tap anywhere to edit.</span>
       </div>
     );
   }
