@@ -1,4 +1,5 @@
 import React from 'react';
+import { autoRehydrate } from 'redux-persist';
 
 import {
   untrackedStates,
@@ -32,6 +33,7 @@ export default isServer => {
       middlewares: getMiddlewares(isServer),
       reducers,
       storeEnhancers: [
+        autoRehydrate(),
         DevTools && DevTools.instrument(),
       ],
     },

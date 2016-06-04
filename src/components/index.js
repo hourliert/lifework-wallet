@@ -1,4 +1,3 @@
-export { default as ErrorManager } from './ErrorManager';
 export { default as LeftMenuDrawer } from './LeftMenuDrawer';
 export { default as LinkItem } from './LinkItem';
 export { default as LinksList } from './LinksList';

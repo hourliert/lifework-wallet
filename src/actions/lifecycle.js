@@ -1,3 +1,6 @@
+import { persistStore } from 'redux-persist';
+import immutableTransform from 'redux-persist-transform-immutable';
+
 import { annotator, AbstractLifecycleManager } from 'retax-components';
 
 import AppActionsCreator from 'actions/app';
@@ -17,5 +20,9 @@ export default class LifecycleActionsCreator extends AbstractLifecycleManager {
 
       dispatch(app.setInitialRenderTime());
     };
+  }
+
+  initializationComplete(store) {
+    persistStore(store, { transforms: [immutableTransform({})] });
   }
 }

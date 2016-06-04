@@ -37,10 +37,6 @@ describe('WrapperRootPage', () => {
         'components/LeftMenuDrawer',
         require('helpers/test/componentsMock').LeftMenuDrawer
       );
-      mockery.registerMock(
-        'components/ErrorManager',
-        require('helpers/test/componentsMock').ErrorManager
-      );
     });
 
     afterEach(() => {
@@ -48,7 +44,6 @@ describe('WrapperRootPage', () => {
       mockery.deregisterMock('react-helmet');
       mockery.deregisterMock('pure-render-decorator');
       mockery.deregisterMock('components/LeftMenuDrawer');
-      mockery.deregisterMock('components/ErrorManager');
       mockery.disable();
     });
 

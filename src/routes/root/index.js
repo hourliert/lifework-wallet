@@ -4,7 +4,7 @@ import getDefaultRoute from 'routes/default';
 
 import { ROOT } from 'constants/routes';
 
-export default function getRoute({ getState }, userAgent) {
+export default function getRoute(store, userAgent) {
   const walletRoute = getWalletRoute();
 
   return {
