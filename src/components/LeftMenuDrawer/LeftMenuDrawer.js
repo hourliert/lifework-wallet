@@ -36,8 +36,10 @@ export default class LeftMenuDrawer extends Component {
   }
 
   _onLinkTouch(url) {
-    this.props.onClose();
-    this.props.onLinkTouch(url);
+    const { onClose, onLinkTouch } = this.props;
+
+    onClose();
+    onLinkTouch(url);
   }
 
   render() {

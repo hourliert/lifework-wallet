@@ -24,3 +24,10 @@ export const removeFromWallet = actionsCreatorFactory(
 
 export const setTransactions = actionsCreatorFactory(SET_TRANSATIONS);
 export const setWallet = actionsCreatorFactory(SET_WALLET);
+
+export function reset() {
+  return dispatch => {
+    dispatch(setTransactions([]));
+    dispatch(setWallet(0));
+  };
+}

@@ -4,7 +4,6 @@ import Helmet from 'react-helmet';
 
 import pureRender from 'pure-render-decorator';
 import LeftMenuDrawer from 'components/LeftMenuDrawer';
-import ErrorManager from 'components/ErrorManager';
 
 import favicon from 'images/favicon/favicon.ico';
 import logo192 from 'images/logo/logo-192x192.png';
@@ -16,12 +15,9 @@ export default class WrapperRootPage extends Component {
 
     version: PropTypes.string,
     menus: PropTypes.array,
-    errors: PropTypes.object,
     leftNavOpen: PropTypes.bool,
     appBarDepth: PropTypes.number,
 
-    markErrorsAsViewed: PropTypes.func,
-    clearErrors: PropTypes.func,
     closeLeftNav: PropTypes.func.isRequired,
     toggleLeftNav: PropTypes.func.isRequired,
     goToLink: PropTypes.func.isRequired,
@@ -37,7 +33,6 @@ export default class WrapperRootPage extends Component {
 
   render() {
     const { children } = this.props;
-    const { errors, markErrorsAsViewed, clearErrors } = this.props;
     const { leftNavOpen, closeLeftNav, toggleLeftNav, goToLink } = this.props;
     const { menus } = this.props;
     const { appBarDepth } = this.props;
@@ -75,12 +70,6 @@ export default class WrapperRootPage extends Component {
           onClose={closeLeftNav}
           onLinkTouch={goToLink}
           menuItems={menus}
-        />
-
-        <ErrorManager
-          errors={errors}
-          markErrorsAsViewed={markErrorsAsViewed}
-          clearErrors={clearErrors}
         />
 
         <div className="flex layout vertical">

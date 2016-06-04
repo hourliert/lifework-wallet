@@ -24,6 +24,7 @@ export default class LinksList extends Component {
           <LinkItem
             key={i}
             item={m}
+            withContainer={m.internal}
             onLinkTouch={onLinkTouch}
           />
         ))

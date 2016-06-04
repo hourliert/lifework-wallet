@@ -32,19 +32,24 @@ export default class LinkItem extends Component {
   _onItemTouched() {
     const { onLinkTouch, item } = this.props;
 
-    onLinkTouch(item.url);
+    onLinkTouch(item);
   }
 
   render() {
     const { item } = this.props;
 
+    let container;
+    if (item.internal) {
+      container = <Link to={item.url} onClick={this._onLinkClick} />;
+    } else {
+      container = <div />;
+    }
+
     return (
       <div>
         <MenuItem
           linkButton
-          containerElement={
-            <Link to={item.url} onClick={this._onLinkClick} />
-          }
+          containerElement={container}
           onTouchTap={this._onItemTouched}
           disabled={item.disabled}
           leftIcon={

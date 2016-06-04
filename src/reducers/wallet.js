@@ -19,11 +19,11 @@ export default reducerFactory(
   getInitialState(),
   {
     [SET_WALLET](state, action) {
-      return state.set('transactions', action.payload);
+      return state.set('value', fromJS(action.payload));
     },
 
     [SET_TRANSATIONS](state, action) {
-      return state.set('value', action.payload);
+      return state.set('transactions', fromJS(action.payload));
     },
 
     [ADD_TO_WALLET](state, action) {
