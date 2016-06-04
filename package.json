@@ -30,7 +30,8 @@
     "pretest": "builder run lint",
     "test": "builder run test:all:coverage",
     "lint": "builder run lint",
-    "release": "builder run release"
+    "release": "builder run release",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "builder-react-fullstack": "^0.2.8",
