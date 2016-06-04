@@ -1,6 +1,6 @@
 export default {
   paper: {
-    margin: '5px',
+    margin: '10px',
     height: '250px',
     width: '95%',
     minWidth: '300px',
