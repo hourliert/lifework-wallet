@@ -21,17 +21,6 @@ All the build process is handled by [builder-react-fullstack](https://github.com
 * [react-helmet](https://github.com/nfl/react-helmet)
 * [redux-form](http://redux-form.com/5.1.0/#/?_k=t21wnx)
 
-### App Features
-* Fake api backend to provide basic end-points
-* Authentication support (signin / signout)
-* Roles and access levels support
-* User section (use user as login to access to the user page)
-* Admin section (use admin as login to access to the admin page)
-* Info page (displays basic session information)
-* Error Handling
-* Loading Handling
-* Different themes for user/admin
-
 ### Technical Features
 * Server Rendering
 * Inline styles with Radium
@@ -55,18 +44,16 @@ In development, the app includes **react-hot-reload** allowing edit in real time
 ## Project structure
 * `./src`: Source code
 * `./src/actions`: Actions creators
-* `./src/api`: Api clients
-* `./src/components`: Presentationnal components (those don't depend on redux and are very dumb!)
+* `./src/components`: Presentational components (those who don't depend on redux and are very dumb!)
 * `./src/config`: App config
 * `./src/constants`: App constants (includes Actions names)
-* `./src/decorators`: Higher-order components
 * `./src/helpers`: Various app helpers (eg. role and access levels checker)
 * `./src/reducers`: Redux reducers
 * `./src/routes`: Application routes. A route is typically a folder with the following structure:
   * `./index.js`: The **react-router** route object
   * `./container/Container.js`: The container component (this one is aware of redux)
   * `./selector/selectors.js`: Container component specific redux selectors
-  * `./component/ContainerWrapper.js`: Wrapper component mediating other components (It should include only components from `./src/components`. ie: presentationnal components)
+  * `./component/ContainerWrapper.js`: Wrapper component mediating other components (It should include only components from `./src/components`. ie: presentational components)
 * `./src/selectors`: Reselect base selectors
 * `./src/store`: Middlewares and store enhancers
 * `./src/themes`: Theme configuration
@@ -76,7 +63,6 @@ In development, the app includes **react-hot-reload** allowing edit in real time
 * `./src/serverEntry.js`: (Front-end) Server entry
 
 ## Tasks
-* `npm run api`: Start the fake back-end api server
 * `npm run frontend`: Start the front-end server
 * `npm start`: Start the back-end and front-end server and watch for file changes
 * `npm run build`: Build the app. The output is in the ./build folder. You could run this command with these options: (eg. `npm run build -- -- --release` (don't forget the `-- --`))
@@ -87,13 +73,12 @@ In development, the app includes **react-hot-reload** allowing edit in real time
 * `npm test`: Run all tests in **mocha**
 * `npm run lint`: Lint the code of the component
 * `npm run tdd`: Run all tests in watch mode
-* `npm run release -- -- semverComptaibleString`: Create a new component version. Check [here](https://github.com/hourliert/builder-react-comp/blob/master/README.md#release-the-component) to see how it works
 
 ## Roadmap
 * Migrate the seed to **typescript** when typescript@2.0.0 is out
-* Migrate the test framework to **jest**. This will reduce the number of dependencies.
+* Migrate the test framework to **jest**. This will reduce the number of dependencies and be easier to work with mocks.
 
-[travis-badge]: https://travis-ci.org/retaxJS/retax-seed.svg?branch=master
-[travis-link]: https://travis-ci.org/retaxJS/retax-seed
-[codecov-badge]: https://codecov.io/github/retaxJS/retax-seed/coverage.svg?branch=master
-[codecov-link]: https://codecov.io/github/retaxJS/retax-seed?branch=master
+[travis-badge]: https://travis-ci.org/hourliert/lifework-wallet.svg?branch=master
+[travis-link]: https://travis-ci.org/hourliert/lifework-wallet
+[codecov-badge]: https://codecov.io/github/hourliert/lifework-wallet/coverage.svg?branch=master
+[codecov-link]: https://codecov.io/github/hourliert/lifework-wallet?branch=master
