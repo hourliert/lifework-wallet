@@ -3,13 +3,13 @@ import { reducerFactory } from 'retax';
 
 import {
   UPDATE_TO_WALLET,
-  SET_TRANSATIONS,
+  SET_TRANSACTIONS,
   SET_WALLET,
 } from 'constants/actions';
 
 function getInitialState() {
   return fromJS({
-    value: undefined,
+    value: 0,
     transactions: [],
   });
 }
@@ -21,7 +21,7 @@ export default reducerFactory(
       return state.set('value', fromJS(action.payload));
     },
 
-    [SET_TRANSATIONS](state, action) {
+    [SET_TRANSACTIONS](state, action) {
       return state.set('transactions', fromJS(action.payload));
     },
 
