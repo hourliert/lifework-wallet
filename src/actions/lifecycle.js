@@ -17,6 +17,9 @@ export default class LifecycleActionsCreator extends AbstractLifecycleManager {
   }
 
   initializationComplete(store) {
-    persistStore(store, { transforms: [immutableTransform({})] });
+    persistStore(store, {
+      transforms: [immutableTransform({})],
+      blacklist: ['routing', 'menus', 'themes', 'form'],
+    });
   }
 }
