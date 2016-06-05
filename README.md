@@ -14,7 +14,7 @@ npm start
 
 ## The Project
 ### Libraries:
-* [retax](https://github.com/hourliert/retax)
+* [retax](https://github.com/retaxJS/retax)
 * [React](https://facebook.github.io/react/) >15.0.0
 * [Redux](http://redux.js.org/)
 * [react-router](https://github.com/reactjs/react-router)
