@@ -18,7 +18,7 @@ export default class Currency extends Component {
     const { currency, value } = this.props;
 
     return (
-      <div style={styles.container}>{currency}{value}</div>
+      <div style={styles.container}>{currency}{value && value.toFixed(2)}</div>
     );
   }
 }
