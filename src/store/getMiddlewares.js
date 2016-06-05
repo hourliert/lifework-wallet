@@ -2,14 +2,10 @@ import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 
 import undefinedMiddleware from './undefinedMiddleware';
-import asyncAwaitMiddleware from './asyncAwaitMiddleware';
 
 export default isServer => ([
   undefinedMiddleware,
   thunk,
-  asyncAwaitMiddleware({
-    promiseTypeSuffixes: ['LOADING', 'SUCCESS', 'ERROR'],
-  }),
   !isServer && createLogger(),
 ]);
 

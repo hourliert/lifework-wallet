@@ -7,6 +7,8 @@ import Subheader from 'material-ui/Subheader';
 import Avatar from 'material-ui/Avatar';
 import FontIcon from 'material-ui/FontIcon';
 
+import Currency from 'components/Currency';
+
 @pureRender
 export default class WalletHistory extends Component {
   static propTypes = {
@@ -59,7 +61,9 @@ export default class WalletHistory extends Component {
               }
             />
           }
-          primaryText={`$${amount}`}
+          primaryText={
+            <Currency value={amount} />
+          }
           secondaryText={
             <p>{date.toLocaleString()}</p>
           }

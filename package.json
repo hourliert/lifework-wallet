@@ -34,8 +34,7 @@
     "postinstall": "npm run build -- -- --release --isomorphic"
   },
   "dependencies": {
-    "builder-react-fullstack": "^0.2.8",
-    "classnames": "^2.2.3",
+    "builder-react-fullstack": "^0.3.1",
     "cookie-parser": "^1.4.1",
     "debug": "^2.2.0",
     "express": "^4.13.3",
@@ -48,7 +47,6 @@
     "radium": "^0.17.1",
     "react": "^15.0.0",
     "react-addons-perf": "^15.0.0",
-    "react-addons-shallow-compare": "^15.0.0",
     "react-dom": "^15.0.0",
     "react-helmet": "^3.0.1",
     "react-redux": "^4.4.5",
@@ -71,12 +69,10 @@
   },
   "devDependencies": {
     "builder": "^2.8.0",
-    "builder-react-fullstack-dev": "^0.2.8",
+    "builder-react-fullstack-dev": "^0.3.1",
     "chai": "^3.4.1",
-    "cors": "^2.7.1",
     "dirty-chai": "^1.2.2",
     "enzyme": "^2.0.0",
-    "fetch-mock": "^4.0.0",
     "istanbul": "^1.0.0-alpha.2",
     "jsdom": "^8.4.0",
     "jsdom-global": "^1.6.1",
@@ -86,7 +82,6 @@
     "redux-devtools": "^3.1.1",
     "redux-devtools-dock-monitor": "^1.0.1",
     "redux-devtools-log-monitor": "^1.0.11",
-    "redux-mock-store": "0.0.6",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0"
   }

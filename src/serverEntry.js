@@ -38,7 +38,7 @@ logger('main: Done');
 const app = global.server = new Express();
 const port = process.env.PORT || FRONTEND_SERVER_PORT;
 
-app.set('port', (process.env.PORT || port));
+app.set('port', port);
 
 app.use(morgan('dev'));
 app.use(favicon(join(__dirname, '/public/favicon.ico')));

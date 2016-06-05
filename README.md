@@ -2,11 +2,10 @@
 [![Build Status][travis-badge]][travis-link]
 [![codecov.io][codecov-badge]][codecov-link]
 
-This project is a generic react seed using retax. This project is production ready.
+This is a simple wallet application.
 All the build process is handled by [builder-react-fullstack](https://github.com/hourliert/builder-react-fullstack).
 
-## What does this seed include?
-
+## The Project
 ### Libraries:
 * [retax](https://github.com/hourliert/retax)
 * [React](https://facebook.github.io/react/) >15.0.0
@@ -15,7 +14,6 @@ All the build process is handled by [builder-react-fullstack](https://github.com
 * [react-router-redux](https://github.com/reactjs/react-router-redux)
 * [ImmutableJS](https://facebook.github.io/immutable-js/)
 * [reselect](https://github.com/reactjs/reselect)
-* [redial](https://github.com/markdalgleish/redial)
 * [material-ui](http://www.material-ui.com/#/)
 * [radium](http://stack.formidable.com/radium/)
 * [react-helmet](https://github.com/nfl/react-helmet)
@@ -28,8 +26,6 @@ All the build process is handled by [builder-react-fullstack](https://github.com
 * Routing support
 * Code splitting support
 * Immutable and non immutable redux reducers support
-* Built-in API Http client using [retax](https://github.com/hourliert/retax) Api module
-* Dependency injection (to inject API Http clients into cctions creators and to inject actions creators into components) using [retax](https://github.com/hourliert/retax)
 
 ## Getting started
 
@@ -38,7 +34,6 @@ npm install
 npm start
 ```
 
-This will run the fake api backend and the frontend server.
 In development, the app includes **react-hot-reload** allowing edit in real time.
 
 ## Project structure
@@ -47,12 +42,12 @@ In development, the app includes **react-hot-reload** allowing edit in real time
 * `./src/components`: Presentational components (those who don't depend on redux and are very dumb!)
 * `./src/config`: App config
 * `./src/constants`: App constants (includes Actions names)
-* `./src/helpers`: Various app helpers (eg. role and access levels checker)
+* `./src/helpers`: Several helpers
 * `./src/reducers`: Redux reducers
 * `./src/routes`: Application routes. A route is typically a folder with the following structure:
   * `./index.js`: The **react-router** route object
   * `./container/Container.js`: The container component (this one is aware of redux)
-  * `./selector/selectors.js`: Container component specific redux selectors
+  * `./selector/selectors.js`: Redux selectors. ie: grab data from redux store efficiently
   * `./component/ContainerWrapper.js`: Wrapper component mediating other components (It should include only components from `./src/components`. ie: presentational components)
 * `./src/selectors`: Reselect base selectors
 * `./src/store`: Middlewares and store enhancers
@@ -63,8 +58,7 @@ In development, the app includes **react-hot-reload** allowing edit in real time
 * `./src/serverEntry.js`: (Front-end) Server entry
 
 ## Tasks
-* `npm run frontend`: Start the front-end server
-* `npm start`: Start the back-end and front-end server and watch for file changes
+* `npm start`: Start front-end server and watch for file changes
 * `npm run build`: Build the app. The output is in the ./build folder. You could run this command with these options: (eg. `npm run build -- -- --release` (don't forget the `-- --`))
   * `--release`: minify the bundle
   * `--devtools`: include **redux-devtools**
