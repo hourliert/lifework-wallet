@@ -1,7 +1,7 @@
 {
   "name": "lifework-wallet",
   "version": "0.0.0",
-  "description": "LifeworkWallet written with React",
+  "description": "Lifework Wallet written with React",
   "engines": {
     "node": ">=5",
     "npm": ">=3.3 <4"

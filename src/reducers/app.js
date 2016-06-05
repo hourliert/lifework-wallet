@@ -18,6 +18,18 @@ function getInitialState() {
   });
 }
 
+/*
+`reducerFactory` is a shorter way for:
+export function myReducer(state, action) {
+  switch (action.type) {
+    case 'ACTION1':
+      return state + action.payload;
+    default:
+      return state;
+  }
+}
+*/
+
 export default reducerFactory(
   getInitialState(),
   {

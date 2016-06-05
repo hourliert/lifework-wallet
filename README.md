@@ -3,7 +3,14 @@
 [![codecov.io][codecov-badge]][codecov-link]
 
 This is a simple wallet application.
-All the build process is handled by [builder-react-fullstack](https://github.com/hourliert/builder-react-fullstack).
+
+## Getting started
+
+```
+npm install
+npm start
+# go to http://localhost:3000 after a few seconds
+```
 
 ## The Project
 ### Libraries:
@@ -27,29 +34,20 @@ All the build process is handled by [builder-react-fullstack](https://github.com
 * Code splitting support
 * Immutable and non immutable redux reducers support
 
-## Getting started
-
-```
-npm install
-npm start
-```
-
-In development, the app includes **react-hot-reload** allowing edit in real time.
-
 ## Project structure
 * `./src`: Source code
 * `./src/actions`: Actions creators
 * `./src/components`: Presentational components (those who don't depend on redux and are very dumb!)
 * `./src/config`: App config
-* `./src/constants`: App constants (includes Actions names)
+* `./src/constants`: App constants (includes Actions names and route name)
 * `./src/helpers`: Several helpers
 * `./src/reducers`: Redux reducers
 * `./src/routes`: Application routes. A route is typically a folder with the following structure:
   * `./index.js`: The **react-router** route object
   * `./container/Container.js`: The container component (this one is aware of redux)
-  * `./selector/selectors.js`: Redux selectors. ie: grab data from redux store efficiently
+  * `./selector/selectors.js`: Redux selectors. ie: grabs data from redux store efficiently
   * `./component/ContainerWrapper.js`: Wrapper component mediating other components (It should include only components from `./src/components`. ie: presentational components)
-* `./src/selectors`: Reselect base selectors
+* `./src/selectors`: Reselect base selectors. ie: optimized redux store readers
 * `./src/store`: Middlewares and store enhancers
 * `./src/themes`: Theme configuration
 * `./src/**/__tests__/`: Test code
